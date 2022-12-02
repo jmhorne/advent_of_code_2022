@@ -6,9 +6,7 @@ def part1():
 
 def part2():
     with open('input.txt') as f:
-        sums = [sum(z) for z in [[int(y) for y in x.split('\n')] for x in f.read().split('\n\n')]]
-        sums.sort(reverse=True)
-        return sum(sums[:3])
+        return sum(sorted([sum(z) for z in [[int(y) for y in x.split('\n')] for x in f.read().split('\n\n')]], reverse=True)[:3])
 
 if __name__ == '__main__':
     print("part 1: ", part1())
