@@ -6,7 +6,7 @@ def part1(crates, commands):
         for move in range(command[0]):
             crates[command[2] - 1].append(crates[command[1] - 1].pop())
 
-    return get_message(crates)
+    return ''.join([x[-1] for x in crates])
 
 
 def part2(crates, commands):
@@ -15,16 +15,7 @@ def part2(crates, commands):
         crates[command[2] - 1] += crates[command[1] - 1][-command[0]:]
         crates[command[1] - 1] = crates[command[1] - 1][:-command[0]]
 
-    return get_message(crates)
-
-
-def get_message(crates):
-    message = ""
-
-    for stack in crates:
-        message += stack.pop()
-    
-    return message
+    return ''.join([x[-1] for x in crates])
 
 
 def build_crates(data):
